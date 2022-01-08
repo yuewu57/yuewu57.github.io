@@ -14,6 +14,4 @@ I am the co-orginazer of Data Science for Mental Health interest group Alan Turi
 
 I am now writting a book on the theory of rough paths with [Terry Lyons](https://www.maths.ox.ac.uk/people/terry.lyons), [Hao Ni](https://iris.ucl.ac.uk/iris/browse/profile?upi=HNIXX56), and [Danyu Yang](https://scholar.google.com/citations?hl=en&user=p_0YU4cAAAAJ&view_op=list_works&alert_preview_top_rm=2&sortby=pubdate). 
 
-### My story
 
-To be honest, I'm having some trouble remembering right now, so why don't you just watch [my movie](https://en.wikipedia.org/wiki/The_Princess_Bride_%28film%29) and it will answer **all** your questions.
