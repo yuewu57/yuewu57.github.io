@@ -1,15 +1,16 @@
 ---
 layout: page
 title: About me
-subtitle: Why you'd want to go on a date with me
+subtitle: Recruiting PhD Student now
 ---
 
-My name is Yue Wu. I have the following qualities:
+My name is Yue Wu, a lecturer in the Department of Mathematics and Statistics, University of Strathclyde, Glasgow. My research interest include:
 
-- fun
-- fun
+- Numerical analysis for stochastic (partial) differential equations 
+- Random periodic solutions of stochastic (partial) differential equations 
+- Rough path theory and its applications in machine learning/data science 
 
-What else do you need?
+I am now writting a book on the theory of rough paths with [Terry Lyons](https://www.maths.ox.ac.uk/people/terry.lyons), [Hao Ni](https://iris.ucl.ac.uk/iris/browse/profile?upi=HNIXX56), and [Danyu Yang](https://scholar.google.com/citations?hl=en&user=p_0YU4cAAAAJ&view_op=list_works&alert_preview_top_rm=2&sortby=pubdate). 
 
 ### My story
 
