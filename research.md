@@ -3,7 +3,6 @@ layout: page
 title: Research
 ---
 
-## Current research highlight
 # Randomised numerical schemes 
 * **Y. Wu**, A randomised trapezoidal quadrature. *International Journal of Computer Mathematics*, (just-accepted), 2021. pp.1-14, https://doi.org/10.1080/00207160.2021.1929194.
 * R. Kruse, N. Polydorides and **Y. Wu**, Application of randomized quadrature Formulas to the finite element method for elliptic equations, *arXiv preprint*, arXiv:1908.08901.
