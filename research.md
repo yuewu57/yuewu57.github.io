@@ -25,7 +25,7 @@ language and speech in non-clinical Interviews](https://doi.org/10.21437/Intersp
 * R. L. Hudson, U. Schauz and **Y. Wu**, [Moments of quantum Levy area using sticky shuffle Hopf algebra](https://doi.org/10.4171/AIHPD/59), *Annalesde l'Institut Henri Poincare D*, 5.3 (2018), 437-466.
 * R. L. Hudson, U. Schauz and **Y. Wu**, [The moment of Levy area using sticky shuffle Hopf algebra](https://doi.org/10.31390/cosa.11.3.02), *Communicationson Stochastic Analysis*, 11.3 (2017), 287-299.
 
-# Other numerics
+## Other numerics
 * P.V. Oliva, **Y Wu**, C. He and H. Ni, [Towards fast weak adversarial training to solve high dimensional parabolic partial differential equations using XNODE-WAN](https://arxiv.org/abs/2110.07812), *arXiv preprint*.
 * R. Lung, **Y. Wu**, D. Kamilis and N. Polydorides, [A sketched finite element method for elliptic models](https://doi.org/10.1016/j.cma.2020.112933), *Computer Methods in Applied Mechanics and Engineering*, 364(2020), 112933.
 * W. Liu, X. Mao, J. Tang, and **Y. Wu**, [Truncated Euler-Maruyama method for classical and time-changed non-autonomous stochastic differential equations](https://doi.org/10.1016/j.apnum.2020.02.007), *Applied Numerical Mathematics*, 153 (2020), 66-81.
