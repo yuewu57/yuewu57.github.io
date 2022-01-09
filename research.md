@@ -3,20 +3,20 @@ layout: page
 title: Research
 ---
 
-# Randomised numerical schemes 
+## Randomised numerical schemes 
 * **Y. Wu**, [A randomised trapezoidal quadrature](https://doi.org/10.1080/00207160.2021.1929194). *International Journal of Computer Mathematics*, (just-accepted), 2021. pp.1-14, .
 * R. Kruse, N. Polydorides and **Y. Wu**, [Application of randomized quadrature Formulas to the finite element method for elliptic equations](https://arxiv.org/abs/1908.08901), *arXiv preprint*, arXiv:1908.08901.
 * R. Kruse and **Y. Wu**, [A randomized Galerkin finite element method for SEE](https://doi.org/10.1090/mcom/3421), *Mathematics of Computation*, 88 (2019), 2793-2825.
 * R. Kruse and **Y. Wu**, [A randomized Milstein method for stochastic differential equations with non-differentiable drift coefficients](https://doi.org/10.3934/dcdsb.2018253), *Discrete and Continuous Dynamical Systems - Series B*, 24.8 (2019): 3475-3502.
 * R. Kruse and **Y. Wu**, [Error analysis of randomized Runge-Kunta methods for differential equations with time irregular coefficients](https://doi.org/10.1515/cmam-2016-0048), *Computational Methods in Applied Mathematics*, vol. 17, no. 3 (2017), 479-498.
 
-# Random periodic solutions 
+## Random periodic solutions 
 * **Y. Wu** and C. Yuan, [The Galerkin analysis for the random periodic solution of semilinear stochastic evolution equations](https://arxiv.org/abs/2111.14118?context=cs), *arXiv preprint*.
 * **Y. Wu**, [The random periodic solution of a stochastic differential equation with a monotone drift and its numerical approximation](https://arxiv.org/abs/2105.13477), *arXiv preprint*.
 * C. Feng, **Y.Wu** and H. Zhao, [Pathwise anticipating random periodic solutions-II.SPDEs with multiplicative linear noise](https://arxiv.org/abs/1803.00503), *arXiv preprint*.
 * C. Feng, **Y. Wu** and H. Zhao, [Anticipating random periodic solutions-I. SDEs with multiplicative linear noise](https://doi.org/10.1016/j.jfa.2016.04.027), *Journal of Functional Analysis*, vol. 271 (2016), 365-417.
 
-# Rough path theory and its applications in machine learning
+## Rough path theory and its applications in machine learning
 * **Y. Wu**, H. Ni, T.J. Lyons and R.L. Hudson, [Signature features with visibility transformation](https://doi.org/10.1109/ICPR48806.2021.9412642), *In 2020 25th International Conference on Pattern Recognition (ICPR)*, 4665-4672. IEEE, 2021.
 * B. Wang, **Y. Wu**, N. Vaci, M. Liakata , T. Lyons, and K. Saunders, [Modelling Paralinguistic Properties in Conversational Speech to Detect Bipolar Disorder and Borderline Personality Disorder](https://doi.org/10.1109/ICASSP39728.2021.9413891), *In ICASSP 2021-2021 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)*, 7243-7247, IEEE, 2021.
 * B. Wang, **Y. Wu**, N. Taylor, T. Lyons, M. Liakata, A. J. Nevado-Holgado and K.Saunders, [Learning to detect bipolar disorder and borderline personality disorder with
