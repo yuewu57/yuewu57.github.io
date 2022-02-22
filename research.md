@@ -11,7 +11,8 @@ title: Research
 * R. Kruse and **Y. Wu**, [Error analysis of randomized Runge-Kunta methods for differential equations with time irregular coefficients](https://doi.org/10.1515/cmam-2016-0048), *Computational Methods in Applied Mathematics*, vol. 17, no. 3 (2017), 479-498.
 
 ## Random periodic solutions 
-* **Y. Wu** and C. Yuan, [The Galerkin analysis for the random periodic solution of semilinear stochastic evolution equations](https://arxiv.org/abs/2111.14118?context=cs), *arXiv preprint*.
+* J. Bao and **Y. Wu**, [Random periodic solutions for stochastic differential equations with non-uniform dissipativity](https://arxiv.org/abs/2202.09771), *arXiv preprint*.
+* **Y. Wu** and C. Yuan, [The Galerkin analysis for the random periodic solution of semilinear stochastic evolution equations](https://arxiv.org/abs/2111.14118), *arXiv preprint*.
 * **Y. Wu**, [The random periodic solution of a stochastic differential equation with a monotone drift and its numerical approximation](https://arxiv.org/abs/2105.13477), *arXiv preprint*.
 * C. Feng, **Y.Wu** and H. Zhao, [Pathwise anticipating random periodic solutions-II.SPDEs with multiplicative linear noise](https://arxiv.org/abs/1803.00503), *arXiv preprint*.
 * C. Feng, **Y. Wu** and H. Zhao, [Anticipating random periodic solutions-I. SDEs with multiplicative linear noise](https://doi.org/10.1016/j.jfa.2016.04.027), *Journal of Functional Analysis*, vol. 271 (2016), 365-417.
