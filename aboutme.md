@@ -1,7 +1,7 @@
 ---
 layout: page
 title: About me
-subtitle: Recruiting PhD Student now
+subtitle: [Recruiting PhD Student now](https://www.findaphd.com/phds/project/randomised-numerical-schemes-the-framework-generalisation-and-applications/?p142318)
 ---
 
 My name is Yue Wu, a lecturer in the Department of Mathematics and Statistics, University of Strathclyde, Glasgow. My research interest include:
