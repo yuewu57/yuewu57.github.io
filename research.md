@@ -4,7 +4,10 @@ title: Research
 ---
 
 ## Randomised numerical schemes 
-* **Y. Wu**, [A randomised trapezoidal quadrature](https://doi.org/10.1080/00207160.2021.1929194). *International Journal of Computer Mathematics*, (just-accepted), 2021. pp.1-14, .
+* **Y. Wu**, [A randomised trapezoidal quadrature](https://doi.org/10.1080/00207160.2021.1929194). *International Journal of Computer Mathematics*, 99, no. 4 (2022): 680-692.
+Wu, Y., 2022. A randomized trapezoidal quadrature. International Journal of Computer Mathematics, 99(4), pp.680-692.
+Wu Y. A randomized trapezoidal quadrature. International Journal of Computer Mathematics. 2022 Apr 3;99(4):680-92.
+
 * R. Kruse, N. Polydorides and **Y. Wu**, [Application of randomized quadrature Formulas to the finite element method for elliptic equations](https://arxiv.org/abs/1908.08901), *arXiv preprint*, arXiv:1908.08901.
 * R. Kruse and **Y. Wu**, [A randomized Galerkin finite element method for SEE](https://doi.org/10.1090/mcom/3421), *Mathematics of Computation*, 88 (2019), 2793-2825.
 * R. Kruse and **Y. Wu**, [A randomized Milstein method for stochastic differential equations with non-differentiable drift coefficients](https://doi.org/10.3934/dcdsb.2018253), *Discrete and Continuous Dynamical Systems - Series B*, 24.8 (2019): 3475-3502.
