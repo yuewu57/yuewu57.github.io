@@ -26,7 +26,7 @@ title: Research
 language and speech in non-clinical Interviews](https://doi.org/10.21437/Interspeech.2020-3040), *In Proc.Interspeech 2020*, 437-441. 2020.
 * S Riedel, and **Y. Wu**, Semi-implicit Taylor schemes for stiff rough differential equations. *arXiv preprint*, arXiv:2006.13689.
 * R. L. Hudson, U. Schauz and **Y. Wu**, [Moments of quantum Levy area using sticky shuffle Hopf algebra](https://doi.org/10.4171/AIHPD/59), *Annalesde l'Institut Henri Poincare D*, 5.3 (2018), 437-466.
-* R. L. Hudson, U. Schauz and **Y. Wu**, [The moment of Levy area using sticky shuffle Hopf algebra](https://doi.org/10.31390/cosa.11.3.02), *Communicationson Stochastic Analysis*, 11.3 (2017), 287-299.
+* R. L. Hudson, U. Schauz and **Y. Wu**, [The moment of Levy area using sticky shuffle Hopf algebra](https://doi.org/10.31390/cosa.11.3.02), *Communications on Stochastic Analysis*, 11.3 (2017), 287-299.
 
 ## Other numerics
 * P.V. Oliva, **Y Wu**, C. He and H. Ni, [Towards fast weak adversarial training to solve high dimensional parabolic partial differential equations using XNODE-WAN](https://arxiv.org/abs/2110.07812), *to appear in Journal of Computational Physics*.
