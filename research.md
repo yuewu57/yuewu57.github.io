@@ -4,10 +4,10 @@ title: Research
 ---
 
 ## Randomised numerical schemes 
-* F. V. Difonzo, P. Przybyłowicz and **Y. Wu**, [Existence, uniqueness and approximation of solutions to Carathéodory delay differential equations](https://arxiv.org/abs/2204.02016), *arXiv preprint*, arXiv:2204.02016.
+* F. V. Difonzo, P. Przybyłowicz and **Y. Wu**, [Existence, uniqueness and approximation of solutions to Carathéodory delay differential equations](https://arxiv.org/abs/2204.02016), *arXiv preprint*.
 
 * **Y. Wu**, [A randomised trapezoidal quadrature](https://doi.org/10.1080/00207160.2021.1929194). *International Journal of Computer Mathematics*, 99.4 (2022): 680-692.
-* R. Kruse, N. Polydorides and **Y. Wu**, [Application of randomized quadrature Formulas to the finite element method for elliptic equations](https://arxiv.org/abs/1908.08901), *arXiv preprint*, arXiv:1908.08901.
+* R. Kruse, N. Polydorides and **Y. Wu**, [Application of randomized quadrature Formulas to the finite element method for elliptic equations](https://arxiv.org/abs/1908.08901), *arXiv preprint*.
 * R. Kruse and **Y. Wu**, [A randomized Galerkin finite element method for SEE](https://doi.org/10.1090/mcom/3421), *Mathematics of Computation*, 88 (2019), 2793-2825.
 * R. Kruse and **Y. Wu**, [A randomized Milstein method for stochastic differential equations with non-differentiable drift coefficients](https://doi.org/10.3934/dcdsb.2018253), *Discrete and Continuous Dynamical Systems - Series B*, 24.8 (2019): 3475-3502.
 * R. Kruse and **Y. Wu**, [Error analysis of randomized Runge-Kunta methods for differential equations with time irregular coefficients](https://doi.org/10.1515/cmam-2016-0048), *Computational Methods in Applied Mathematics*, 17.3 (2017), 479-498.
