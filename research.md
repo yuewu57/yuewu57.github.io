@@ -20,8 +20,7 @@ title: Research
 
 
 ## Rough path theory and its applications in machine learning
-* Y. Wu, G.M. Goodwin, T. Lyons and K.E.A. Saunders, Identifying psychiatric diagnosis from missing mood data through the use of log-signature features
-Accepted to appear in *PLOS ONE*.
+* Y. Wu, G.M. Goodwin, T. Lyons and K.E.A. Saunders, [Identifying psychiatric diagnosis from missing mood data through the use of log-signature features](https://journals.plos.org/plosone/article/authors?id=10.1371/journal.pone.0276821), *PLOS ONE*, 2022.
 * P. Moore, T. Iliant, F. Ion, **Y. Wu** and T.J. Lyons, [Path signatures for non-intrusive load monitoring](https://ieeexplore.ieee.org/document/9747285), *In ICASSP 2022 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)*, IEEE, 2022.
 * **Y. Wu**, H. Ni, T.J. Lyons and R.L. Hudson, [Signature features with visibility transformation](https://doi.org/10.1109/ICPR48806.2021.9412642), *In 2020 25th International Conference on Pattern Recognition (ICPR)*, 4665-4672. IEEE, 2021.
 * B. Wang, **Y. Wu**, N. Vaci, M. Liakata , T. Lyons, and K. Saunders, [Modelling Paralinguistic Properties in Conversational Speech to Detect Bipolar Disorder and Borderline Personality Disorder](https://doi.org/10.1109/ICASSP39728.2021.9413891), *In ICASSP 2021 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)*, 7243-7247, IEEE, 2021.
