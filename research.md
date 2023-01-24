@@ -6,6 +6,8 @@ title: Research
 ## Randomised numerical schemes 
 * F. V. Difonzo, P. Przybyłowicz and **Y. Wu**, [Existence, uniqueness and approximation of solutions to Carathéodory delay differential equations](https://arxiv.org/pdf/2204.02016.pdf), *arXiv preprint*.
 * **Y. Wu**, [A randomised trapezoidal quadrature](https://doi.org/10.1080/00207160.2021.1929194). *International Journal of Computer Mathematics*, 99.4 (2022): 680-692.
+* **Y. Wu** and N. Polydorides, [A multilevel Monte Carlo estimator for matrix multiplication](https://doi.org/10.1137/19M125604X), *SIAM Journal on Scientific Computing*, 42.5 (2020), A2731-A2749.
+* R. Lung, **Y. Wu**, D. Kamilis and N. Polydorides, [A sketched finite element method for elliptic models](https://doi.org/10.1016/j.cma.2020.112933), *Computer Methods in Applied Mechanics and Engineering*, 364(2020), 112933.
 * R. Kruse, N. Polydorides and **Y. Wu**, [Application of randomized quadrature Formulas to the finite element method for elliptic equations](https://arxiv.org/abs/1908.08901), *arXiv preprint*.
 * R. Kruse and **Y. Wu**, [A randomized Galerkin finite element method for SEE](https://doi.org/10.1090/mcom/3421), *Mathematics of Computation*, 88 (2019), 2793-2825.
 * R. Kruse and **Y. Wu**, [A randomized Milstein method for stochastic differential equations with non-differentiable drift coefficients](https://doi.org/10.3934/dcdsb.2018253), *Discrete and Continuous Dynamical Systems - Series B*, 24.8 (2019): 3475-3502.
@@ -33,6 +35,4 @@ language and speech in non-clinical Interviews](https://doi.org/10.21437/Intersp
 ## Other numerics
 * W. Liu, X. Mao and **Y. Wu**, [The backward Euler-Maruyama method for invariant measures of stochastic differential equations with super-linear coefficients](https://doi.org/10.1016/j.apnum.2022.09.017), Accepted by *Applied Numerical Mathematics*.
 * P.V. Oliva, **Y. Wu**, C. He and H. Ni, [Towards fast weak adversarial training to solve high dimensional parabolic partial differential equations using XNODE-WAN](https://doi.org/10.1016/j.jcp.2022.111233), *Journal of Computational Physics*, 463 (2022), 111233.
-* R. Lung, **Y. Wu**, D. Kamilis and N. Polydorides, [A sketched finite element method for elliptic models](https://doi.org/10.1016/j.cma.2020.112933), *Computer Methods in Applied Mechanics and Engineering*, 364(2020), 112933.
 * W. Liu, X. Mao, J. Tang, and **Y. Wu**, [Truncated Euler-Maruyama method for classical and time-changed non-autonomous stochastic differential equations](https://doi.org/10.1016/j.apnum.2020.02.007), *Applied Numerical Mathematics*, 153 (2020), 66-81.
-* **Y. Wu** and N. Polydorides, [A multilevel Monte Carlo estimator for matrix multiplication](https://doi.org/10.1137/19M125604X), *SIAM Journal on Scientific Computing*, 42.5 (2020), A2731-A2749.
