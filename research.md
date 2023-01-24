@@ -33,6 +33,6 @@ language and speech in non-clinical Interviews](https://doi.org/10.21437/Intersp
 * R. L. Hudson, U. Schauz and **Y. Wu**, [The moment of Levy area using sticky shuffle Hopf algebra](https://doi.org/10.31390/cosa.11.3.02), *Communications on Stochastic Analysis*, 11.3 (2017), 287-299.
 
 ## Other numerics
-* W. Liu, X. Mao and **Y. Wu**, [The backward Euler-Maruyama method for invariant measures of stochastic differential equations with super-linear coefficients](https://doi.org/10.1016/j.apnum.2022.09.017), Accepted by *Applied Numerical Mathematics*.
+* W. Liu, X. Mao and **Y. Wu**, [The backward Euler-Maruyama method for invariant measures of stochastic differential equations with super-linear coefficients](https://doi.org/10.1016/j.apnum.2022.09.017), *Applied Numerical Mathematics*, 184 (2023), 137-150..
 * P.V. Oliva, **Y. Wu**, C. He and H. Ni, [Towards fast weak adversarial training to solve high dimensional parabolic partial differential equations using XNODE-WAN](https://doi.org/10.1016/j.jcp.2022.111233), *Journal of Computational Physics*, 463 (2022), 111233.
 * W. Liu, X. Mao, J. Tang, and **Y. Wu**, [Truncated Euler-Maruyama method for classical and time-changed non-autonomous stochastic differential equations](https://doi.org/10.1016/j.apnum.2020.02.007), *Applied Numerical Mathematics*, 153 (2020), 66-81.
