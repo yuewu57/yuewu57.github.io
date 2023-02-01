@@ -14,6 +14,6 @@ I am the co-orginazer of Data Science for Mental Health interest group of The Al
 
 I am now writting a book on the theory of rough paths with [Terry Lyons](https://www.maths.ox.ac.uk/people/terry.lyons), [Hao Ni](https://iris.ucl.ac.uk/iris/browse/profile?upi=HNIXX56), and [Danyu Yang](https://scholar.google.com/citations?hl=en&user=p_0YU4cAAAAJ&view_op=list_works&alert_preview_top_rm=2&sortby=pubdate). 
 
-My current PhD student is [Xinheng Xie](https://pureportal.strath.ac.uk/en/persons/xinheng-xie) and I am the second supervisor of [Jingchao ZHou](https://www.strath.ac.uk/courses/undergraduate/mathematicsstatisticsdonghuauniversity/jingchaozhou/) and [Amy Nicolson](https://pureportal.strath.ac.uk/en/persons/amy-nicolson).
+My current PhD student is [Xinheng Xie](https://pureportal.strath.ac.uk/en/persons/xinheng-xie) and I am the second supervisor of [Jingchao Zhou](https://www.strath.ac.uk/courses/undergraduate/mathematicsstatisticsdonghuauniversity/jingchaozhou/) and [Amy Nicolson](https://pureportal.strath.ac.uk/en/persons/amy-nicolson).
 
 
