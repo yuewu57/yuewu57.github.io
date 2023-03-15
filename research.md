@@ -15,7 +15,7 @@ title: Research
 
 ## Random periodic solutions 
 * J. Bao and **Y. Wu**, [Random periodic solutions for stochastic differential equations with non-uniform dissipativity](https://arxiv.org/abs/2202.09771), *arXiv preprint*.
-* **Y. Wu** and C. Yuan, [The Galerkin analysis for the random periodic solution of semilinear stochastic evolution equations](https://arxiv.org/abs/2111.14118), to appear in *Journal of Theoretical Probability*, (2023).
+* **Y. Wu** and C. Yuan, [The Galerkin analysis for the random periodic solution of semilinear stochastic evolution equations](https://link.springer.com/article/10.1007/s10959-023-01236-x), *Journal of Theoretical Probability*, (2023).
 * **Y. Wu**, [Backward Euler–Maruyama Method for the Random Periodic Solution of a Stochastic Differential Equation with a Monotone Drift](https://link.springer.com/article/10.1007/s10959-022-01178-w), *Journal of Theoretical Probability*, (2022).
 * C. Feng, **Y. Wu** and H. Zhao, [Pathwise anticipating random periodic solutions-II.SPDEs with multiplicative linear noise](https://arxiv.org/abs/1803.00503), *arXiv preprint*.
 * C. Feng, **Y. Wu** and H. Zhao, [Anticipating random periodic solutions-I. SDEs with multiplicative linear noise](https://doi.org/10.1016/j.jfa.2016.04.027), *Journal of Functional Analysis*, 271 (2016), 365-417.
