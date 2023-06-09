@@ -22,6 +22,7 @@ title: Research
 
 
 ## Rough path theory and its applications in machine learning
+* B. Fang, H. Ni and **Y. Wu**, [A Neural RDE-based model for solving path-dependent PDEs](https://arxiv.org/abs/2306.01123),  *arXiv preprint*.
 * **Y. Wu**, G.M. Goodwin, T. Lyons and K.E.A. Saunders, [Identifying psychiatric diagnosis from missing mood data through the use of log-signature features](https://journals.plos.org/plosone/article/authors?id=10.1371/journal.pone.0276821), *PLOS ONE*, 7.11 (2022), e0276821.
 * P. Moore, T. Iliant, F. Ion, **Y. Wu** and T.J. Lyons, [Path signatures for non-intrusive load monitoring](https://ieeexplore.ieee.org/document/9747285), *In ICASSP 2022 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)*, IEEE, 2022.
 * **Y. Wu**, H. Ni, T.J. Lyons and R.L. Hudson, [Signature features with visibility transformation](https://doi.org/10.1109/ICPR48806.2021.9412642), *In 2020 25th International Conference on Pattern Recognition (ICPR)*, 4665-4672. IEEE, 2021.
@@ -33,6 +34,7 @@ language and speech in non-clinical Interviews](https://doi.org/10.21437/Intersp
 * R. L. Hudson, U. Schauz and **Y. Wu**, [The moment of Levy area using sticky shuffle Hopf algebra](https://doi.org/10.31390/cosa.11.3.02), *Communications on Stochastic Analysis*, 11.3 (2017), 287-299.
 
 ## Other numerics
+* X. Xie, **Y. Wu**, H. Ni and C. He, [NODE-ImgNet: a PDE-informed effective and robust model for image denoising](https://arxiv.org/pdf/2305.11049.pdf), *arXiv preprint*.
 * W. Liu, X. Mao and **Y. Wu**, [The backward Euler-Maruyama method for invariant measures of stochastic differential equations with super-linear coefficients](https://doi.org/10.1016/j.apnum.2022.09.017), *Applied Numerical Mathematics*, 184 (2023), 137-150.
 * P.V. Oliva, **Y. Wu**, C. He and H. Ni, [Towards fast weak adversarial training to solve high dimensional parabolic partial differential equations using XNODE-WAN](https://doi.org/10.1016/j.jcp.2022.111233), *Journal of Computational Physics*, 463 (2022), 111233.
 * W. Liu, X. Mao, J. Tang, and **Y. Wu**, [Truncated Euler-Maruyama method for classical and time-changed non-autonomous stochastic differential equations](https://doi.org/10.1016/j.apnum.2020.02.007), *Applied Numerical Mathematics*, 153 (2020), 66-81.
