@@ -14,6 +14,7 @@ title: Research
 * R. Kruse and **Y. Wu**, [Error analysis of randomized Runge-Kunta methods for differential equations with time irregular coefficients](https://doi.org/10.1515/cmam-2016-0048), *Computational Methods in Applied Mathematics*, 17.3 (2017), 479-498.
 
 ## Random periodic solutions 
+* Y. Guo, X. Wang and **Y. Wu**, [Order-One Convergence of the Backward Euler Method for Random Periodic Solutions of Semilinear SDEs](https://arxiv.org/abs/2306.06689), *arXiv preprint*.
 * J. Bao and **Y. Wu**, [Random periodic solutions for stochastic differential equations with non-uniform dissipativity](https://arxiv.org/abs/2202.09771), *arXiv preprint*.
 * **Y. Wu** and C. Yuan, [The Galerkin analysis for the random periodic solution of semilinear stochastic evolution equations](https://link.springer.com/article/10.1007/s10959-023-01236-x), *Journal of Theoretical Probability*, (2023).
 * **Y. Wu**, [Backward Euler–Maruyama Method for the Random Periodic Solution of a Stochastic Differential Equation with a Monotone Drift](https://link.springer.com/article/10.1007/s10959-022-01178-w), *Journal of Theoretical Probability*, (2022).
