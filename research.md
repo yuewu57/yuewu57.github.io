@@ -4,7 +4,7 @@ title: Research
 ---
 
 ## Randomised numerical schemes 
-* F. V. Difonzo, P. Przybyłowicz and **Y. Wu**, [Existence, uniqueness and approximation of solutions to Carathéodory delay differential equations](https://arxiv.org/pdf/2204.02016.pdf), *arXiv preprint*.
+* F. V. Difonzo, P. Przybyłowicz and **Y. Wu**, [Existence, uniqueness and approximation of solutions to Carathéodory delay differential equations](https://arxiv.org/pdf/2204.02016.pdf), To appear *Journal of Computational and Applied Mathematic*.
 * **Y. Wu**, [A randomised trapezoidal quadrature](https://doi.org/10.1080/00207160.2021.1929194). *International Journal of Computer Mathematics*, 99.4 (2022): 680-692.
 * **Y. Wu** and N. Polydorides, [A multilevel Monte Carlo estimator for matrix multiplication](https://doi.org/10.1137/19M125604X), *SIAM Journal on Scientific Computing*, 42.5 (2020), A2731-A2749.
 * R. Lung, **Y. Wu**, D. Kamilis and N. Polydorides, [A sketched finite element method for elliptic models](https://doi.org/10.1016/j.cma.2020.112933), *Computer Methods in Applied Mechanics and Engineering*, 364(2020), 112933.
