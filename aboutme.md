@@ -16,4 +16,4 @@ I am now writting a book on the theory of rough paths with [Terry Lyons](https:/
 
 My current PhD student is [Xinheng Xie](https://pureportal.strath.ac.uk/en/persons/xinheng-xie)
 
-I have been the external PhD examiner for UCL and The University of Liverpool.
+I have been the external PhD examiner for UCL and the University of Liverpool.
