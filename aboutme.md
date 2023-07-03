@@ -4,7 +4,7 @@ title: About me
 subtitle: Recruiting PhD Student now
 ---
 
-My name is Yue Wu, a lecturer in the Department of Mathematics and Statistics, University of Strathclyde, Glasgow. I am accepting PhD student all year round. My research interest include:
+My name is Yue Wu, a lecturer in the Department of Mathematics and Statistics, University of Strathclyde, Glasgow; LMS member. I am accepting PhD student all year round. My research interest include:
 
 - Numerical analysis for stochastic (partial) differential equations (see [talk slides given at MCQMC 2018](http://mcqmc2018.inria.fr/wp-content/uploads/2018/07/MCQMCTalkWU.pdf))
 - Random periodic solutions of stochastic (partial) differential equations and its numercs (watch [my talk given at GPSD 2021 mannheim](https://www.youtube.com/watch?v=BuWu-p2DFn8&t=1s))
