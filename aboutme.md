@@ -12,7 +12,7 @@ My name is Yue Wu, a lecturer in the Department of Mathematics and Statistics, U
 
 I am the co-orginazer of Data Science for Mental Health interest group of The Alan Turing Institute, the past events can be found in [DS4MH](https://turing-ds4mh.github.io/).
 
-I am the co-orginazer of Women in Data Science and Mathematics Seminar Series, the webpage can be found in [WINDMATH]([https://turing-ds4mh.github.io/](https://www.windsmath.com/)).
+I am the co-orginazer of Women in Data Science and Mathematics Seminar Series, the webpage can be found in [WINDMATH](https://www.windsmath.com/).
 
 I am now writting a book on the theory of rough paths with [Terry Lyons](https://www.maths.ox.ac.uk/people/terry.lyons), [Hao Ni](https://iris.ucl.ac.uk/iris/browse/profile?upi=HNIXX56), and [Danyu Yang](https://scholar.google.com/citations?hl=en&user=p_0YU4cAAAAJ&view_op=list_works&alert_preview_top_rm=2&sortby=pubdate). 
 
