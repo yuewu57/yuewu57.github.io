@@ -4,7 +4,8 @@ title: Research
 ---
 
 ## Randomised numerical schemes 
-* F. V. Difonzo, P. Przybyłowicz and **Y. Wu**, [Existence, uniqueness and approximation of solutions to Carathéodory delay differential equations](https://doi.org/10.1016/j.cam.2023.115411), *Journal of Computational and Applied Mathematics*, 2023.
+* P. Przybyłowicz, **Y. Wu** and X. Xie, [On approximation of solutions of stochastic delay differential equations via randomized Euler scheme](https://arxiv.org/pdf/2306.08926.pdf), *arXiv preprint*.
+* F. V. Difonzo, P. Przybyłowicz and **Y. Wu**, [Existence, uniqueness and approximation of solutions to Carathéodory delay differential equations](https://doi.org/10.1016/j.cam.2023.115411), *Journal of Computational and Applied Mathematics*, 436 (2024), 115411.
 * **Y. Wu**, [A randomised trapezoidal quadrature](https://doi.org/10.1080/00207160.2021.1929194). *International Journal of Computer Mathematics*, 99.4 (2022): 680-692.
 * **Y. Wu** and N. Polydorides, [A multilevel Monte Carlo estimator for matrix multiplication](https://doi.org/10.1137/19M125604), *SIAM Journal on Scientific Computing*, 42.5 (2020), A2731-A2749.
 * R. Lung, **Y. Wu**, D. Kamilis and N. Polydorides, [A sketched finite element method for elliptic models](https://doi.org/10.1016/j.cma.2020.112933), *Computer Methods in Applied Mechanics and Engineering*, 364(2020), 112933.
@@ -23,7 +24,7 @@ title: Research
 
 
 ## Rough path theory and its applications in machine learning
-* R. Ibraheem,  **Y. Wu**, T. Lyons and Goncalo dos Reis, [Early prediction of Lithium-ion cell degradation trajectories using signatures of voltage curves up to 4-minute sub-sampling rates](https://doi.org/10.1016/j.apenergy.2023.121974), *Applied Energy*.
+* R. Ibraheem,  **Y. Wu**, T. Lyons and Goncalo dos Reis, [Early prediction of Lithium-ion cell degradation trajectories using signatures of voltage curves up to 4-minute sub-sampling rates](https://doi.org/10.1016/j.apenergy.2023.121974), *Applied Energy*, 2023.
 * B. Fang, H. Ni and **Y. Wu**, [A Neural RDE-based model for solving path-dependent PDEs](https://arxiv.org/abs/2306.01123),  *arXiv preprint*.
 * **Y. Wu**, G.M. Goodwin, T. Lyons and K.E.A. Saunders, [Identifying psychiatric diagnosis from missing mood data through the use of log-signature features](https://journals.plos.org/plosone/article/authors?id=10.1371/journal.pone.0276821), *PLOS ONE*, 7.11 (2022), e0276821.
 * P. Moore, T. Iliant, F. Ion, **Y. Wu** and T.J. Lyons, [Path signatures for non-intrusive load monitoring](https://ieeexplore.ieee.org/document/9747285), *In ICASSP 2022 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)*, IEEE, 2022.
