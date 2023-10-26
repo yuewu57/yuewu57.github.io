@@ -16,6 +16,6 @@ I am the co-orginazer of Women in Data Science and Mathematics Seminar Series, t
 
 I am now writting a book on the theory of rough paths with [Terry Lyons](https://www.maths.ox.ac.uk/people/terry.lyons), [Hao Ni](https://iris.ucl.ac.uk/iris/browse/profile?upi=HNIXX56), and [Danyu Yang](https://scholar.google.com/citations?hl=en&user=p_0YU4cAAAAJ&view_op=list_works&alert_preview_top_rm=2&sortby=pubdate). 
 
-My current PhD student is [Xinheng Xie](https://pureportal.strath.ac.uk/en/persons/xinheng-xie)
+My current PhD students include [Xinheng Xie](https://pureportal.strath.ac.uk/en/persons/xinheng-xie) and [Shahzeb Khan](https://pureportal.strath.ac.uk/en/persons/shahzeb-khan).
 
 I have been the external PhD examiner for UCL and the University of Liverpool.
