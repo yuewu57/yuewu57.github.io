@@ -4,7 +4,7 @@ title: Research
 ---
 
 ## Randomised numerical schemes 
-* P. Przybyłowicz, **Y. Wu** and X. Xie, [On approximation of solutions of stochastic delay differential equations via randomized Euler scheme](https://doi.org/10.1016/j.apnum.2023.11.008), Accepted by *Applied Numerical Mathematics*.
+* P. Przybyłowicz, **Y. Wu** and X. Xie, [On approximation of solutions of stochastic delay differential equations via randomized Euler scheme](https://doi.org/10.1016/j.apnum.2023.11.008), *Applied Numerical Mathematics*, 197 (2024), pp.143-163.
 * F. V. Difonzo, P. Przybyłowicz and **Y. Wu**, [Existence, uniqueness and approximation of solutions to Carathéodory delay differential equations](https://doi.org/10.1016/j.cam.2023.115411), *Journal of Computational and Applied Mathematics*, 436 (2024), 115411.
 * **Y. Wu**, [A randomised trapezoidal quadrature](https://doi.org/10.1080/00207160.2021.1929194). *International Journal of Computer Mathematics*, 99.4 (2022): 680-692.
 * **Y. Wu** and N. Polydorides, [A multilevel Monte Carlo estimator for matrix multiplication](https://doi.org/10.1137/19M125604), *SIAM Journal on Scientific Computing*, 42.5 (2020), A2731-A2749.
@@ -37,8 +37,8 @@ language and speech in non-clinical Interviews](https://doi.org/10.21437/Intersp
 * R. L. Hudson, U. Schauz and **Y. Wu**, [The moment of Levy area using sticky shuffle Hopf algebra](https://doi.org/10.31390/cosa.11.3.02), *Communications on Stochastic Analysis*, 11.3 (2017), 287-299.
 
 ## Other numerics
-* C Pang, X Wang, and **Y. Wu**, [Linear implicit approximations of invariant measures of semi-linear SDEs with non-globally Lipschitz coefficients](https://arxiv.org/pdf/2308.12886.pdf), *arXiv preprint*.
-* X. Xie, **Y. Wu**, H. Ni and C. He, [NODE-ImgNet: a PDE-informed effective and robust model for image denoising](https://arxiv.org/pdf/2305.11049.pdf), Accepted by *Pattern Recognition*.
+* C Pang, X Wang, and **Y. Wu**, [Linear implicit approximations of invariant measures of semi-linear SDEs with non-globally Lipschitz coefficients](https://doi.org/10.1016/j.jco.2024.101842),  *Journal of Complexity*, 2024, p.101842.
+* X. Xie, **Y. Wu**, H. Ni and C. He, [NODE-ImgNet: a PDE-informed effective and robust model for image denoising](https://doi.org/10.1016/j.patcog.2023.110176), Accepted by *Pattern Recognition*, 2024, 148, p.110176..
 * W. Liu, X. Mao and **Y. Wu**, [The backward Euler-Maruyama method for invariant measures of stochastic differential equations with super-linear coefficients](https://doi.org/10.1016/j.apnum.2022.09.017), *Applied Numerical Mathematics*, 184 (2023), 137-150.
 * P.V. Oliva, **Y. Wu**, C. He and H. Ni, [Towards fast weak adversarial training to solve high dimensional parabolic partial differential equations using XNODE-WAN](https://doi.org/10.1016/j.jcp.2022.111233), *Journal of Computational Physics*, 463 (2022), 111233.
 * W. Liu, X. Mao, J. Tang, and **Y. Wu**, [Truncated Euler-Maruyama method for classical and time-changed non-autonomous stochastic differential equations](https://doi.org/10.1016/j.apnum.2020.02.007), *Applied Numerical Mathematics*, 153 (2020), 66-81.
