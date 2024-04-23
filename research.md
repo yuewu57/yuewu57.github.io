@@ -5,6 +5,7 @@ title: Research
 
 ## Randomised numerical schemes 
 * P. Przybyłowicz, **Y. Wu** and X. Xie, [On approximation of solutions of stochastic delay differential equations via randomized Euler scheme](https://doi.org/10.1016/j.apnum.2023.11.008), *Applied Numerical Mathematics*, 197 (2024), 143-163.
+* F. V. Difonzo, P. Przybyłowicz, **Y. Wu** and X. Xie, [A Randomized Runge-Kutta Method for time-irregular delay differential equations](https://arxiv.org/abs/2401.11658), *arXiv preprint*.
 * F. V. Difonzo, P. Przybyłowicz and **Y. Wu**, [Existence, uniqueness and approximation of solutions to Carathéodory delay differential equations](https://doi.org/10.1016/j.cam.2023.115411), *Journal of Computational and Applied Mathematics*, 436 (2024), 115411.
 * **Y. Wu**, [A randomised trapezoidal quadrature](https://doi.org/10.1080/00207160.2021.1929194). *International Journal of Computer Mathematics*, 99.4 (2022): 680-692.
 * **Y. Wu** and N. Polydorides, [A multilevel Monte Carlo estimator for matrix multiplication](https://doi.org/10.1137/19M125604), *SIAM Journal on Scientific Computing*, 42.5 (2020), A2731-A2749.
