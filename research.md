@@ -6,6 +6,7 @@ title: Research
 This page lists selected publications by topic. For a complete and frequently updated list, please see my [Google Scholar profile](https://scholar.google.com/citations?user=ACk-gEIAAAAJ&hl=en).
 
 ## Randomised numerical schemes 
+* J. Bao and **Y. Wu**, [Randomised Euler-Maruyama method for SDEs with Hölder continuous drift coefficient](https://doi.org/10.1007/s10543-025-01091-8), *BIT Numerical Mathematics*, 65 (2025).
 * P. Przybyłowicz, **Y. Wu** and X. Xie, [On approximation of solutions of stochastic delay differential equations via randomized Euler scheme](https://doi.org/10.1016/j.apnum.2023.11.008), *Applied Numerical Mathematics*, 197 (2024), 143-163.
 * F. V. Difonzo, P. Przybyłowicz, **Y. Wu** and X. Xie, [A Randomized Runge-Kutta Method for time-irregular delay differential equations](https://arxiv.org/abs/2401.11658), *arXiv preprint*.
 * F. V. Difonzo, P. Przybyłowicz and **Y. Wu**, [Existence, uniqueness and approximation of solutions to Carathéodory delay differential equations](https://doi.org/10.1016/j.cam.2023.115411), *Journal of Computational and Applied Mathematics*, 436 (2024), 115411.
@@ -18,7 +19,8 @@ This page lists selected publications by topic. For a complete and frequently up
 * R. Kruse and **Y. Wu**, [Error analysis of randomized Runge-Kutta methods for differential equations with time irregular coefficients](https://doi.org/10.1515/cmam-2016-0048), *Computational Methods in Applied Mathematics*, 17.3 (2017), 479-498.
 
 ## Random periodic solutions 
-* Y. Guo, X. Wang and **Y. Wu**, [Order-One Convergence of the Backward Euler Method for Random Periodic Solutions of Semilinear SDEs](https://arxiv.org/abs/2306.06689), *arXiv preprint*.
+* Y. Guo, C. Pang, X. Wang and **Y. Wu**, [Order-one explicit approximations of random periodic solutions of semi-linear SDEs with multiplicative noise](https://doi.org/10.1016/j.cnsns.2025.109386), *Communications in Nonlinear Science and Numerical Simulation*, 152 (2026), 109386.
+* Y. Guo, X. Wang and **Y. Wu**, [Order-one convergence of the backward Euler method for random periodic solutions of semilinear SDEs](https://doi.org/10.3934/dcdsb.2025018), *Discrete and Continuous Dynamical Systems - Series B*, 30 (2025), 3222-3242.
 * J. Bao and **Y. Wu**, [Random periodic solutions for stochastic differential equations with non-uniform dissipativity](https://arxiv.org/abs/2202.09771), *arXiv preprint*.
 * **Y. Wu** and C. Yuan, [The Galerkin analysis for the random periodic solution of semilinear stochastic evolution equations](https://link.springer.com/article/10.1007/s10959-023-01236-x), *Journal of Theoretical Probability*, (2023).
 * **Y. Wu**, [Backward Euler–Maruyama Method for the Random Periodic Solution of a Stochastic Differential Equation with a Monotone Drift](https://link.springer.com/article/10.1007/s10959-022-01178-w), *Journal of Theoretical Probability*, (2022).
@@ -40,8 +42,12 @@ language and speech in non-clinical Interviews](https://doi.org/10.21437/Intersp
 * R. L. Hudson, U. Schauz and **Y. Wu**, [The moment of Lévy area using sticky shuffle Hopf algebra](https://doi.org/10.31390/cosa.11.3.02), *Communications on Stochastic Analysis*, 11.3 (2017), 287-299.
 
 ## Other numerics
+* C. Pang, X. Wang and **Y. Wu**, [Projected Langevin Monte Carlo algorithms in non-convex and super-linear setting](https://doi.org/10.1016/j.jcp.2025.113754), *Journal of Computational Physics*, 526 (2025), 113754.
 * C Pang, X Wang, and **Y. Wu**, [Linear implicit approximations of invariant measures of semi-linear SDEs with non-globally Lipschitz coefficients](https://doi.org/10.1016/j.jco.2024.101842),  *Journal of Complexity*, (2024), p.101842.
 * X. Xie, **Y. Wu**, H. Ni and C. He, [NODE-ImgNet: a PDE-informed effective and robust model for image denoising](https://doi.org/10.1016/j.patcog.2023.110176), *Pattern Recognition*, 148 (2024), 110176.
 * W. Liu, X. Mao and **Y. Wu**, [The backward Euler-Maruyama method for invariant measures of stochastic differential equations with super-linear coefficients](https://doi.org/10.1016/j.apnum.2022.09.017), *Applied Numerical Mathematics*, 184 (2023), 137-150.
 * P.V. Oliva, **Y. Wu**, C. He and H. Ni, [Towards fast weak adversarial training to solve high dimensional parabolic partial differential equations using XNODE-WAN](https://doi.org/10.1016/j.jcp.2022.111233), *Journal of Computational Physics*, 463 (2022), 111233.
 * W. Liu, X. Mao, J. Tang, and **Y. Wu**, [Truncated Euler-Maruyama method for classical and time-changed non-autonomous stochastic differential equations](https://doi.org/10.1016/j.apnum.2020.02.007), *Applied Numerical Mathematics*, 153 (2020), 66-81.
+
+## Data science applications
+* **Y. Wu** and collaborators, [DECOVID: A UK two-center harmonized database of acute care electronic health records for COVID-19 research](https://doi.org/10.3390/data10120195), *Data*, 10 (2025).
