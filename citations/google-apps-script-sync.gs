@@ -106,6 +106,7 @@ function refreshOpenAlexData_(options) {
 
   const works = fetchAllOpenAlexWorks_(authorId, apiKey);
   const annualCitationMap = buildAnnualCitationMap_(works);
+  const abstractMap = buildAbstractMap_(works);
 
   const currentRows = works.map(workToCurrentRow_);
   const snapshotRows = works.map(w => [now].concat(workToCurrentRow_(w)));
@@ -133,7 +134,7 @@ function refreshOpenAlexData_(options) {
   props.deleteProperty('LAST_OPENALEX_REFRESH_ERROR');
 
   try {
-    syncCitationDashboardToGitHub_(annualCitationMap);
+    syncCitationDashboardToGitHub_(annualCitationMap, abstractMap);
     props.deleteProperty('LAST_GITHUB_SYNC_ERROR');
   } catch (err) {
     props.setProperty('LAST_GITHUB_SYNC_ERROR', now.toISOString() + ' | ' + String(err && err.message ? err.message : err));
@@ -164,7 +165,7 @@ function fetchAllOpenAlexWorks_(authorId, apiKey) {
   do {
     const url = 'https://api.openalex.org/works' +
       '?filter=' + encodeURIComponent('author.id:' + authorId) +
-      '&select=' + encodeURIComponent('id,doi,title,publication_date,publication_year,type,cited_by_count,primary_location,is_retracted,updated_date,counts_by_year') +
+      '&select=' + encodeURIComponent('id,doi,title,publication_date,publication_year,type,cited_by_count,primary_location,is_retracted,updated_date,counts_by_year,abstract_inverted_index') +
       '&per_page=100' +
       '&cursor=' + encodeURIComponent(cursor) +
       '&api_key=' + encodeURIComponent(apiKey);
@@ -222,6 +223,30 @@ function buildAnnualCitationMap_(works) {
     }));
   });
   return out;
+}
+
+function buildAbstractMap_(works) {
+  const out = {};
+  (works || []).forEach(work => {
+    const id = String(work.id || '');
+    if (!id) return;
+    out[id] = abstractFromInvertedIndex_(work.abstract_inverted_index);
+  });
+  return out;
+}
+
+function abstractFromInvertedIndex_(index) {
+  if (!index || typeof index !== 'object') return null;
+  const words = [];
+  Object.keys(index).forEach(word => {
+    const positions = Array.isArray(index[word]) ? index[word] : [];
+    positions.forEach(position => {
+      const p = Number(position);
+      if (Number.isInteger(p) && p >= 0) words[p] = word;
+    });
+  });
+  const text = words.join(' ').replace(/\s+/g, ' ').trim();
+  return text || null;
 }
 
 function buildDataQualityRows_(works, snapshotTime) {
@@ -299,7 +324,7 @@ function getOrCreateSheet_(ss, name) {
   return ss.getSheetByName(name) || ss.insertSheet(name);
 }
 
-function syncCitationDashboardToGitHub_(annualCitationMap) {
+function syncCitationDashboardToGitHub_(annualCitationMap, abstractMap) {
   const props = PropertiesService.getScriptProperties();
   const token = props.getProperty('GITHUB_CITATION_TOKEN');
   if (!token) throw new Error('Missing Script Property: GITHUB_CITATION_TOKEN');
@@ -332,18 +357,26 @@ function syncCitationDashboardToGitHub_(annualCitationMap) {
       source: r[idx.source] ? String(r[idx.source]) : null,
       retracted: Boolean(r[idx.is_retracted]),
       openalex_updated: normaliseDateForJson_(r[idx.openalex_updated_date]),
-      citation_counts_by_year: []
+      citation_counts_by_year: [],
+      abstract: null
     }));
 
+  const workIds = baseWorks.map(w => w.id);
   if (!annualCitationMap) {
     annualCitationMap = openAlexApiKey
-      ? fetchWorkCitationCountsByYear_(baseWorks.map(w => w.id), openAlexApiKey)
+      ? fetchWorkCitationCountsByYear_(workIds, openAlexApiKey)
+      : {};
+  }
+  if (!abstractMap) {
+    abstractMap = openAlexApiKey
+      ? fetchWorkAbstracts_(workIds, openAlexApiKey)
       : {};
   }
 
   const works = baseWorks.map(w => ({
     ...w,
-    citation_counts_by_year: annualCitationMap[w.id] || []
+    citation_counts_by_year: annualCitationMap[w.id] || [],
+    abstract: abstractMap[w.id] || null
   }));
 
   const sidx = headerIndex_(summaryValues[0] || []);
@@ -361,7 +394,7 @@ function syncCitationDashboardToGitHub_(annualCitationMap) {
   const latest = summaryHistory.length ? summaryHistory[summaryHistory.length - 1] : null;
 
   const payload = {
-    schema_version: 2,
+    schema_version: 3,
     generated_at: new Date().toISOString(),
     source: {
       name: 'OpenAlex via private Google Sheet',
@@ -369,6 +402,7 @@ function syncCitationDashboardToGitHub_(annualCitationMap) {
       orcid: sidx.orcid !== undefined ? String(lastRow[sidx.orcid] || '') : '',
       raw_author_metrics: latest,
       annual_citation_window: 'OpenAlex work-level counts_by_year',
+      abstract_source: 'OpenAlex abstract_inverted_index reconstructed to readable text during private sync',
       note: 'OpenAlex counts can differ from Google Scholar. Reconciliation is applied separately on the public dashboard.'
     },
     works: works,
@@ -405,6 +439,30 @@ function fetchWorkCitationCountsByYear_(workIds, apiKey) {
         year: Number(row.year),
         cited_by_count: Number(row.cited_by_count || 0)
       }));
+    });
+  }
+  return out;
+}
+
+function fetchWorkAbstracts_(workIds, apiKey) {
+  const ids = [...new Set((workIds || [])
+    .map(id => String(id || '').replace('https://openalex.org/', ''))
+    .filter(Boolean))];
+  const out = {};
+  if (!ids.length) return out;
+
+  const chunkSize = 100;
+  for (let i = 0; i < ids.length; i += chunkSize) {
+    const chunk = ids.slice(i, i + chunkSize);
+    const url = 'https://api.openalex.org/works' +
+      '?filter=' + encodeURIComponent('openalex_id:' + chunk.join('|')) +
+      '&select=' + encodeURIComponent('id,abstract_inverted_index') +
+      '&per_page=' + chunk.length +
+      '&api_key=' + encodeURIComponent(apiKey);
+
+    const body = fetchJson_(url, 'OpenAlex abstract fetch');
+    (body.results || []).forEach(work => {
+      out[String(work.id)] = abstractFromInvertedIndex_(work.abstract_inverted_index);
     });
   }
   return out;
