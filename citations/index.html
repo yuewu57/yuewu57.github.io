@@ -6,6 +6,9 @@
   <title>Yue Wu — Research Impact Dashboard</title>
   <meta name="description" content="Interactive OpenAlex-backed research impact dashboard for Yue Wu." />
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@3.0.0/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/hammerjs@2.0.8/hammer.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom@2.2.0/dist/chartjs-plugin-zoom.min.js"></script>
   <style>
     :root{--bg:#f6f8fb;--panel:#fff;--text:#18212f;--muted:#64748b;--line:#e5eaf1;--accent:#2563eb;--accent2:#0f766e;--warn:#b45309;--bad:#b91c1c;--chip:#eef4ff;--shadow:0 10px 30px rgba(15,23,42,.06)}
     *{box-sizing:border-box} body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:var(--text)}
@@ -14,12 +17,13 @@
     .toolbar{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:14px;box-shadow:var(--shadow);display:grid;grid-template-columns:2fr repeat(3,1fr) auto;gap:10px;align-items:end;position:sticky;top:8px;z-index:10}.field label{display:block;font-size:12px;color:var(--muted);margin:0 0 5px;font-weight:700}.field input,.field select{width:100%;border:1px solid var(--line);background:#fff;color:var(--text);border-radius:10px;padding:10px 11px;font-size:14px}.btn{border:1px solid var(--line);background:#fff;color:var(--text);border-radius:10px;padding:10px 13px;font-weight:700;cursor:pointer}.btn:hover{border-color:#c5cfdd}.btn.primary{background:var(--accent);color:#fff;border-color:var(--accent)}
     .metrics{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px;margin:18px 0}.metric{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:15px;box-shadow:var(--shadow)}.metric .label{font-size:12px;color:var(--muted);font-weight:700}.metric .value{font-size:28px;font-weight:800;margin-top:5px;letter-spacing:-.03em}.metric .foot{font-size:12px;color:var(--muted);margin-top:4px}.metric.warning .value{color:var(--warn)}
     .grid2{display:grid;grid-template-columns:1.35fr 1fr;gap:14px;margin-bottom:14px}.panel{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:16px;box-shadow:var(--shadow)}.panel h2{font-size:16px;margin:0 0 4px}.panel .hint{font-size:12px;color:var(--muted);margin-bottom:10px}.chart{height:330px;position:relative}.chart.sm{height:300px}.chart canvas{width:100%!important;height:100%!important}.chart-empty{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:28px;color:var(--muted);font-size:13px;line-height:1.5;background:linear-gradient(to bottom,rgba(255,255,255,.90),rgba(255,255,255,.96));border-radius:12px}.chart-empty[hidden]{display:none}
+    .history-head{display:flex;justify-content:space-between;gap:18px;align-items:flex-start;flex-wrap:wrap}.history-controls{display:flex;gap:10px;align-items:flex-end;flex-wrap:wrap;margin:8px 0 12px}.history-group{display:flex;flex-direction:column;gap:5px}.history-label{font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:800}.segmented{display:flex;gap:4px;flex-wrap:wrap}.seg-btn{border:1px solid var(--line);background:#fff;color:var(--text);border-radius:9px;padding:7px 10px;font-size:12px;font-weight:750;cursor:pointer}.seg-btn:hover{border-color:#bfcadd}.seg-btn.active{background:var(--accent);border-color:var(--accent);color:#fff}.history-select{border:1px solid var(--line);background:#fff;color:var(--text);border-radius:9px;padding:7px 30px 7px 10px;font-size:12px;font-weight:700}.history-note{font-size:12px;color:var(--muted);margin-top:8px}.history-note strong{color:var(--text)}
     .section-head{display:flex;justify-content:space-between;gap:16px;align-items:end;margin:26px 0 10px}.section-head h2{margin:0;font-size:20px}.section-head .right{color:var(--muted);font-size:13px}.pill{display:inline-flex;align-items:center;padding:5px 9px;border-radius:999px;font-size:12px;font-weight:700;background:var(--chip);color:#1d4ed8}.pill.warn{background:#fff4db;color:#92400e}.pill.good{background:#eaf8f3;color:#0f766e}
     .table-panel{background:var(--panel);border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:var(--shadow)}.table-scroll{overflow:auto;max-height:720px}table{width:100%;border-collapse:collapse;font-size:13px}thead th{position:sticky;top:0;background:#f8fafc;text-align:left;padding:11px 12px;border-bottom:1px solid var(--line);color:#475569;white-space:nowrap;cursor:pointer}tbody td{padding:11px 12px;border-bottom:1px solid #eef1f5;vertical-align:top}tbody tr:hover{background:#fafcff}.title-cell{min-width:360px}.title-cell a{text-decoration:none;font-weight:700}.title-cell a:hover{text-decoration:underline}.muted{color:var(--muted)}.num{text-align:right;font-variant-numeric:tabular-nums}.review-row{background:#fffaf1}.review-dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:#d97706;margin-right:6px}.empty{padding:38px;text-align:center;color:var(--muted)}
     .footer{margin-top:22px;color:var(--muted);font-size:12px;line-height:1.6}.source-links{display:flex;gap:12px;flex-wrap:wrap}.source-links a{text-decoration:none;color:var(--accent)}
     .live-toast{position:fixed;right:18px;bottom:18px;z-index:50;max-width:420px;background:#0f172a;color:#fff;border-radius:14px;padding:13px 16px;box-shadow:0 16px 42px rgba(15,23,42,.28);font-size:13px;line-height:1.45;opacity:0;transform:translateY(8px);pointer-events:none;transition:.22s ease}.live-toast.show{opacity:1;transform:translateY(0)}
     @media(max-width:1000px){.metrics{grid-template-columns:repeat(3,1fr)}.grid2{grid-template-columns:1fr}.toolbar{grid-template-columns:1fr 1fr 1fr}.toolbar .search{grid-column:1/-1}.toolbar .actions{grid-column:1/-1}.top{flex-direction:column}.meta{text-align:left}}
-    @media(max-width:640px){.wrap{padding:18px 12px 40px}.metrics{grid-template-columns:repeat(2,1fr)}.toolbar{grid-template-columns:1fr}.toolbar .search,.toolbar .actions{grid-column:auto}.top h1{font-size:28px}.title-cell{min-width:260px}}
+    @media(max-width:640px){.wrap{padding:18px 12px 40px}.metrics{grid-template-columns:repeat(2,1fr)}.toolbar{grid-template-columns:1fr}.toolbar .search,.toolbar .actions{grid-column:auto}.top h1{font-size:28px}.title-cell{min-width:260px}.history-controls{align-items:stretch}.history-group{width:100%}}
   </style>
 </head>
 <body>
@@ -62,7 +66,40 @@
       <article class="panel"><h2>Most cited papers</h2><div class="hint">Top papers under the current filters.</div><div class="chart"><canvas id="topChart"></canvas></div></article>
     </section>
 
-    <section class="panel"><h2>Profile citation history</h2><div class="hint">Total raw OpenAlex author citations at each successful Google Sheet snapshot. This is a monitoring series, not the same as citations received by calendar year.</div><div class="chart"><canvas id="historyChart"></canvas></div></section>
+    <section class="panel">
+      <div class="history-head">
+        <div><h2>Profile citation history</h2><div class="hint">Total raw OpenAlex author citations at each successful Google Sheet snapshot. Use the controls to move from intraday detail to long-term trend.</div></div>
+      </div>
+      <div class="history-controls">
+        <div class="history-group">
+          <div class="history-label">Range</div>
+          <div class="segmented" id="historyRanges">
+            <button class="seg-btn" data-history-range="7d">7D</button>
+            <button class="seg-btn" data-history-range="30d">30D</button>
+            <button class="seg-btn" data-history-range="90d">90D</button>
+            <button class="seg-btn" data-history-range="1y">1Y</button>
+            <button class="seg-btn" data-history-range="5y">5Y</button>
+            <button class="seg-btn active" data-history-range="all">All</button>
+          </div>
+        </div>
+        <div class="history-group">
+          <label class="history-label" for="historyResolution">Resolution</label>
+          <select class="history-select" id="historyResolution">
+            <option value="raw">Raw snapshots</option>
+            <option value="day">Day</option>
+            <option value="week">Week</option>
+            <option value="month">Month</option>
+            <option value="year">Year</option>
+          </select>
+        </div>
+        <div class="history-group">
+          <div class="history-label">View</div>
+          <button class="btn" id="historyResetZoom">Reset zoom</button>
+        </div>
+      </div>
+      <div class="chart"><canvas id="historyChart"></canvas></div>
+      <div class="history-note"><strong id="historyWindowLabel">—</strong> • Mouse wheel or pinch to zoom horizontally; drag to pan. Aggregated values use the last observed cumulative citation count in each period.</div>
+    </section>
 
     <div class="section-head"><div><h2>Publications</h2><div class="right" id="filterSummary">—</div></div><div><span class="pill good">Likely mine</span> <span class="pill warn">Needs review</span></div></div>
     <section class="table-panel"><div class="table-scroll"><table><thead><tr><th data-sort="title">Publication</th><th data-sort="year">Year</th><th data-sort="type">Type</th><th data-sort="citations" class="num">Citations</th><th data-sort="source">Source</th><th>Status</th></tr></thead><tbody id="pubBody"></tbody></table><div class="empty" id="empty" hidden>No publications match the current filters.</div></div></section>
@@ -82,6 +119,7 @@
   let lastDataFingerprint = '', refreshTimer = null, toastTimer = null;
   const $ = id => document.getElementById(id);
   const state = { search:'', year:'all', type:'all', status:'likely_mine' };
+  const historyState = { range:'all', resolution:'raw' };
   const charts = {};
 
   const esc = s => String(s ?? '').replace(/[&<>'"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));
@@ -222,6 +260,13 @@
     $('showReview').addEventListener('click',()=>{$('status').value='needs_review'; state.status='needs_review'; apply(); window.scrollTo({top:0,behavior:'smooth'});});
     $('csv').addEventListener('click',exportCSV);
     document.querySelectorAll('th[data-sort]').forEach(th=>th.addEventListener('click',()=>{const k=th.dataset.sort; if(sortKey===k)sortDir*=-1; else {sortKey=k;sortDir=(k==='citations'||k==='year')?-1:1} renderTable();}));
+    document.querySelectorAll('[data-history-range]').forEach(btn=>btn.addEventListener('click',()=>{
+      historyState.range=btn.dataset.historyRange;
+      document.querySelectorAll('[data-history-range]').forEach(b=>b.classList.toggle('active',b.dataset.historyRange===historyState.range));
+      renderHistoryChart();
+    }));
+    $('historyResolution').addEventListener('change',e=>{historyState.resolution=e.target.value; renderHistoryChart();});
+    $('historyResetZoom').addEventListener('click',()=>{if(charts.history?.resetZoom) charts.history.resetZoom();});
   }
 
   function apply(){
@@ -263,6 +308,110 @@
 
   function baseOptions(){return {responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{boxWidth:12,usePointStyle:true}},tooltip:{mode:'index',intersect:false}},interaction:{mode:'nearest',axis:'x',intersect:false},scales:{x:{grid:{display:false}},y:{beginAtZero:true,grid:{color:'#eef2f7'}}}};}
 
+  function historyRangeMs(range){
+    return ({'7d':7,'30d':30,'90d':90,'1y':365,'5y':365*5}[range] || null) * 86400000;
+  }
+
+  function historyBucketStart(timestamp,resolution){
+    const d=new Date(timestamp);
+    if(resolution==='day') return Date.UTC(d.getUTCFullYear(),d.getUTCMonth(),d.getUTCDate());
+    if(resolution==='week'){
+      const day=(d.getUTCDay()+6)%7;
+      return Date.UTC(d.getUTCFullYear(),d.getUTCMonth(),d.getUTCDate()-day);
+    }
+    if(resolution==='month') return Date.UTC(d.getUTCFullYear(),d.getUTCMonth(),1);
+    if(resolution==='year') return Date.UTC(d.getUTCFullYear(),0,1);
+    return timestamp;
+  }
+
+  function prepareHistoryData(){
+    let hist=[...(data.summary_history||[])]
+      .map(d=>({time:new Date(d.time).getTime(),citations:Number(d.citations||0)}))
+      .filter(d=>Number.isFinite(d.time))
+      .sort((a,b)=>a.time-b.time);
+    if(!hist.length) return [];
+    const windowMs=historyRangeMs(historyState.range);
+    if(windowMs){
+      const cutoff=hist[hist.length-1].time-windowMs;
+      hist=hist.filter(d=>d.time>=cutoff);
+    }
+    if(historyState.resolution==='raw') return hist;
+    const buckets=new Map();
+    hist.forEach(d=>{
+      const key=historyBucketStart(d.time,historyState.resolution);
+      const existing=buckets.get(key);
+      if(!existing || d.time>existing.time) buckets.set(key,d);
+    });
+    return [...buckets.values()].sort((a,b)=>a.time-b.time);
+  }
+
+  function historyTimeUnit(){
+    if(historyState.resolution!=='raw') return historyState.resolution;
+    if(historyState.range==='7d' || historyState.range==='30d') return 'day';
+    if(historyState.range==='90d') return 'week';
+    if(historyState.range==='1y') return 'month';
+    if(historyState.range==='5y') return 'year';
+    return false;
+  }
+
+  function renderHistoryChart(){
+    const hist=prepareHistoryData();
+    if(charts.history) charts.history.destroy();
+    const unit=historyTimeUnit();
+    const rangeLabel={all:'All data','7d':'Last 7 days','30d':'Last 30 days','90d':'Last 90 days','1y':'Last year','5y':'Last 5 years'}[historyState.range];
+    const resolutionLabel={raw:'raw snapshots',day:'daily',week:'weekly',month:'monthly',year:'yearly'}[historyState.resolution];
+    $('historyWindowLabel').textContent=hist.length
+      ? `${rangeLabel} • ${resolutionLabel} • ${hist.length} point${hist.length===1?'':'s'}`
+      : `${rangeLabel} • no snapshots available`;
+
+    charts.history=new Chart($('historyChart'),{
+      type:'line',
+      data:{datasets:[{
+        label:'Raw OpenAlex author citations',
+        data:hist.map(d=>({x:d.time,y:d.citations})),
+        parsing:false,
+        borderColor:'#7c3aed',
+        backgroundColor:'rgba(124,58,237,.08)',
+        fill:true,
+        tension:.2,
+        pointRadius:hist.length>150?0:3,
+        pointHoverRadius:5
+      }]},
+      options:{
+        responsive:true,
+        maintainAspectRatio:false,
+        animation:false,
+        interaction:{mode:'nearest',axis:'x',intersect:false},
+        plugins:{
+          legend:{display:false},
+          tooltip:{callbacks:{
+            title:items=>items.length?new Date(items[0].parsed.x).toLocaleString('en-GB',{dateStyle:'medium',timeStyle:historyState.resolution==='raw'?'short':undefined}):'',
+            label:item=>`${fmt(item.parsed.y)} total citations`
+          }},
+          zoom:{
+            limits:{x:{min:'original',max:'original',minRange:3600000}},
+            pan:{enabled:true,mode:'x'},
+            zoom:{wheel:{enabled:true,speed:.08},pinch:{enabled:true},mode:'x'}
+          }
+        },
+        scales:{
+          x:{
+            type:'time',
+            grid:{display:false},
+            time:{
+              unit:unit || undefined,
+              minUnit:'hour',
+              tooltipFormat:historyState.resolution==='raw'?'dd MMM yyyy, HH:mm':'dd MMM yyyy',
+              displayFormats:{hour:'dd MMM HH:mm',day:'dd MMM',week:'dd MMM',month:'MMM yyyy',year:'yyyy'}
+            },
+            ticks:{maxRotation:0,autoSkip:true,maxTicksLimit:10}
+          },
+          y:{beginAtZero:false,grid:{color:'#eef2f7'},ticks:{precision:0}}
+        }
+      }
+    });
+  }
+
   function renderCharts(){
     const {byYear,byType}=aggregates();
 
@@ -288,8 +437,7 @@
     const top=[...filtered].sort((a,b)=>b.citations-a.citations).slice(0,10).reverse();
     if(charts.top) charts.top.destroy(); charts.top=new Chart($('topChart'),{type:'bar',data:{labels:top.map(d=>short(d.title,42)),datasets:[{label:'Citations',data:top.map(d=>d.citations),backgroundColor:top.map(d=>d.status==='needs_review'?'#d97706':'#0f766e'),borderRadius:5}]},options:{...baseOptions(),indexAxis:'y',plugins:{legend:{display:false},tooltip:{callbacks:{title:items=>top[items[0].dataIndex].title,label:item=>`${item.raw} citations`}}}}});
 
-    const hist=[...(data.summary_history||[])].sort((a,b)=>new Date(a.time)-new Date(b.time));
-    if(charts.history) charts.history.destroy(); charts.history=new Chart($('historyChart'),{type:'line',data:{labels:hist.map(d=>new Date(d.time).toLocaleDateString('en-GB')),datasets:[{label:'Raw OpenAlex author citations',data:hist.map(d=>d.citations),borderColor:'#7c3aed',backgroundColor:'rgba(124,58,237,.08)',fill:true,tension:.25,pointRadius:3}]},options:{...baseOptions(),plugins:{legend:{display:false}}}});
+    renderHistoryChart();
   }
 
   function renderTable(){
