@@ -21,6 +21,7 @@ function syncCitationDashboardToGitHub_() {
   const token = props.getProperty('GITHUB_CITATION_TOKEN');
   if (!token) throw new Error('Missing Script Property: GITHUB_CITATION_TOKEN');
 
+  const openAlexApiKey = props.getProperty('OPENALEX_API_KEY');
   const ss = SpreadsheetApp.getActiveSpreadsheet();
   const current = ss.getSheetByName('Current_Works');
   const summary = ss.getSheetByName('Summary_History');
@@ -41,7 +42,7 @@ function syncCitationDashboardToGitHub_() {
     if (idx[k] === undefined) throw new Error('Current_Works missing column: ' + k);
   });
 
-  const works = currentValues.slice(1)
+  const baseWorks = currentValues.slice(1)
     .filter(r => r[idx.openalex_id])
     .map(r => ({
       id: String(r[idx.openalex_id]),
@@ -53,8 +54,18 @@ function syncCitationDashboardToGitHub_() {
       citations: Number(r[idx.cited_by_count] || 0),
       source: r[idx.source] ? String(r[idx.source]) : null,
       retracted: Boolean(r[idx.is_retracted]),
-      openalex_updated: normaliseDateForJson_(r[idx.openalex_updated_date])
+      openalex_updated: normaliseDateForJson_(r[idx.openalex_updated_date]),
+      citation_counts_by_year: []
     }));
+
+  const annualCitationMap = openAlexApiKey
+    ? fetchWorkCitationCountsByYear_(baseWorks.map(w => w.id), openAlexApiKey)
+    : {};
+
+  const works = baseWorks.map(w => ({
+    ...w,
+    citation_counts_by_year: annualCitationMap[w.id] || []
+  }));
 
   const sidx = headerIndex_(summaryValues[0] || []);
   const summaryHistory = summaryValues.slice(1)
@@ -71,13 +82,14 @@ function syncCitationDashboardToGitHub_() {
   const latest = summaryHistory.length ? summaryHistory[summaryHistory.length - 1] : null;
 
   const payload = {
-    schema_version: 1,
+    schema_version: 2,
     generated_at: new Date().toISOString(),
     source: {
       name: 'OpenAlex via private Google Sheet',
       openalex_author_id: sidx.openalex_author_id !== undefined ? String(lastRow[sidx.openalex_author_id] || '') : '',
       orcid: sidx.orcid !== undefined ? String(lastRow[sidx.orcid] || '') : '',
       raw_author_metrics: latest,
+      annual_citation_window: 'OpenAlex work-level counts_by_year (typically last 10 years)',
       note: 'OpenAlex counts can differ from Google Scholar. Reconciliation is applied separately on the public dashboard.'
     },
     works: works,
@@ -102,6 +114,43 @@ function syncCitationDashboardToGitHub_() {
 
   props.setProperty('LAST_GITHUB_DASHBOARD_HASH', hash);
   props.setProperty('LAST_GITHUB_DASHBOARD_SYNC', new Date().toISOString());
+}
+
+function fetchWorkCitationCountsByYear_(workIds, apiKey) {
+  const ids = [...new Set((workIds || [])
+    .map(id => String(id || '').replace('https://openalex.org/', ''))
+    .filter(Boolean))];
+  const out = {};
+  if (!ids.length) return out;
+
+  const chunkSize = 50;
+  for (let i = 0; i < ids.length; i += chunkSize) {
+    const chunk = ids.slice(i, i + chunkSize);
+    const filter = 'openalex_id:' + chunk.join('|');
+    const url = 'https://api.openalex.org/works' +
+      '?filter=' + encodeURIComponent(filter) +
+      '&select=id,counts_by_year' +
+      '&per_page=' + chunk.length +
+      '&api_key=' + encodeURIComponent(apiKey);
+
+    const response = UrlFetchApp.fetch(url, {
+      method: 'get',
+      muteHttpExceptions: true
+    });
+    const status = response.getResponseCode();
+    if (status !== 200) {
+      throw new Error('OpenAlex annual citation fetch failed: HTTP ' + status + ' ' + response.getContentText());
+    }
+
+    const body = JSON.parse(response.getContentText());
+    (body.results || []).forEach(work => {
+      out[String(work.id)] = (work.counts_by_year || []).map(row => ({
+        year: Number(row.year),
+        cited_by_count: Number(row.cited_by_count || 0)
+      }));
+    });
+  }
+  return out;
 }
 
 function headerIndex_(header) {
