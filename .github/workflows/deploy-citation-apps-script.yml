@@ -1,0 +1,61 @@
+name: Deploy Citation Apps Script
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - 'citations/google-apps-script-sync.gs'
+      - '.github/workflows/deploy-citation-apps-script.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Check deployment secrets
+        env:
+          CLASP_JSON: ${{ secrets.CLASP_JSON }}
+          CLASPRC_JSON: ${{ secrets.CLASPRC_JSON }}
+        run: |
+          if [ -z "$CLASP_JSON" ]; then
+            echo "::error::Missing GitHub Secret CLASP_JSON"
+            exit 1
+          fi
+          if [ -z "$CLASPRC_JSON" ]; then
+            echo "::error::Missing GitHub Secret CLASPRC_JSON"
+            exit 1
+          fi
+
+      - name: Prepare Apps Script project
+        env:
+          CLASP_JSON: ${{ secrets.CLASP_JSON }}
+          CLASPRC_JSON: ${{ secrets.CLASPRC_JSON }}
+        run: |
+          rm -rf .apps-script-deploy
+          mkdir -p .apps-script-deploy
+          cp citations/google-apps-script-sync.gs .apps-script-deploy/Code.gs
+          cat > .apps-script-deploy/appsscript.json <<'EOF'
+          {
+            "timeZone": "Europe/London",
+            "dependencies": {},
+            "exceptionLogging": "STACKDRIVER",
+            "runtimeVersion": "V8"
+          }
+          EOF
+          printf '%s' "$CLASP_JSON" > .apps-script-deploy/.clasp.json
+          printf '%s' "$CLASPRC_JSON" > "$HOME/.clasprc.json"
+
+      - name: Push to Google Apps Script
+        working-directory: .apps-script-deploy
+        run: npx --yes @google/clasp@latest push --force
