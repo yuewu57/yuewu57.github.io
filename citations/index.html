@@ -68,7 +68,7 @@
 
     <section class="panel">
       <div class="history-head">
-        <div><h2>Profile citation history</h2><div class="hint">Total raw OpenAlex author citations at each successful Google Sheet snapshot. Use the controls to move from intraday detail to long-term trend.</div></div>
+        <div><h2>Profile citation history</h2><div class="hint">Total raw OpenAlex author citations at each successful Google Sheet snapshot. Use the controls to switch between cumulative citation level and citation gains over time.</div></div>
       </div>
       <div class="history-controls">
         <div class="history-group">
@@ -80,6 +80,13 @@
             <button class="seg-btn" data-history-range="1y">1Y</button>
             <button class="seg-btn" data-history-range="5y">5Y</button>
             <button class="seg-btn active" data-history-range="all">All</button>
+          </div>
+        </div>
+        <div class="history-group">
+          <div class="history-label">Metric</div>
+          <div class="segmented" id="historyMetrics">
+            <button class="seg-btn active" data-history-metric="cumulative">Cumulative</button>
+            <button class="seg-btn" data-history-metric="density">Density</button>
           </div>
         </div>
         <div class="history-group">
@@ -98,7 +105,7 @@
         </div>
       </div>
       <div class="chart"><canvas id="historyChart"></canvas></div>
-      <div class="history-note"><strong id="historyWindowLabel">—</strong> • Mouse wheel or pinch to zoom horizontally; drag to pan. Aggregated values use the last observed cumulative citation count in each period.</div>
+      <div class="history-note"><strong id="historyWindowLabel">—</strong> • Mouse wheel or pinch to zoom horizontally; drag to pan. Cumulative uses end-of-period totals; Density shows citation gains between successive periods.</div>
     </section>
 
     <div class="section-head"><div><h2>Publications</h2><div class="right" id="filterSummary">—</div></div><div><span class="pill good">Likely mine</span> <span class="pill warn">Needs review</span></div></div>
@@ -119,7 +126,7 @@
   let lastDataFingerprint = '', refreshTimer = null, toastTimer = null;
   const $ = id => document.getElementById(id);
   const state = { search:'', year:'all', type:'all', status:'likely_mine' };
-  const historyState = { range:'all', resolution:'raw' };
+  const historyState = { range:'all', resolution:'raw', metric:'cumulative' };
   const charts = {};
 
   const esc = s => String(s ?? '').replace(/[&<>'"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));
@@ -265,6 +272,11 @@
       document.querySelectorAll('[data-history-range]').forEach(b=>b.classList.toggle('active',b.dataset.historyRange===historyState.range));
       renderHistoryChart();
     }));
+    document.querySelectorAll('[data-history-metric]').forEach(btn=>btn.addEventListener('click',()=>{
+      historyState.metric=btn.dataset.historyMetric;
+      document.querySelectorAll('[data-history-metric]').forEach(b=>b.classList.toggle('active',b.dataset.historyMetric===historyState.metric));
+      renderHistoryChart();
+    }));
     $('historyResolution').addEventListener('change',e=>{historyState.resolution=e.target.value; renderHistoryChart();});
     $('historyResetZoom').addEventListener('click',()=>{if(charts.history?.resetZoom) charts.history.resetZoom();});
   }
@@ -354,27 +366,45 @@
     return false;
   }
 
+  function buildHistorySeries(){
+    const base=prepareHistoryData();
+    if(historyState.metric==='cumulative') {
+      return base.map(d=>({x:d.time,y:d.citations}));
+    }
+    if(!base.length) return [];
+    return base.map((d,i)=>({
+      x:d.time,
+      y:i===0 ? 0 : d.citations - base[i-1].citations
+    }));
+  }
+
   function renderHistoryChart(){
-    const hist=prepareHistoryData();
+    const histBase=prepareHistoryData();
+    const histSeries=buildHistorySeries();
     if(charts.history) charts.history.destroy();
     const unit=historyTimeUnit();
     const rangeLabel={all:'All data','7d':'Last 7 days','30d':'Last 30 days','90d':'Last 90 days','1y':'Last year','5y':'Last 5 years'}[historyState.range];
     const resolutionLabel={raw:'raw snapshots',day:'daily',week:'weekly',month:'monthly',year:'yearly'}[historyState.resolution];
-    $('historyWindowLabel').textContent=hist.length
-      ? `${rangeLabel} • ${resolutionLabel} • ${hist.length} point${hist.length===1?'':'s'}`
+    const cumulativeMode=historyState.metric==='cumulative';
+    const metricLabel=cumulativeMode?'cumulative':'density';
+    const totalGain=histBase.length>1 ? histBase[histBase.length-1].citations-histBase[0].citations : 0;
+    const movement=histBase.length>1 && totalGain===0 ? ' • no citation change in this window' : histBase.length>1 ? ` • ${totalGain>=0?'+':''}${fmt(totalGain)} citations across the window` : '';
+    $('historyWindowLabel').textContent=histSeries.length
+      ? `${rangeLabel} • ${resolutionLabel} • ${metricLabel} • ${histSeries.length} point${histSeries.length===1?'':'s'}${movement}`
       : `${rangeLabel} • no snapshots available`;
 
     charts.history=new Chart($('historyChart'),{
       type:'line',
       data:{datasets:[{
-        label:'Raw OpenAlex author citations',
-        data:hist.map(d=>({x:d.time,y:d.citations})),
+        label:cumulativeMode?'Total citations':'Citations gained',
+        data:histSeries,
         parsing:false,
-        borderColor:'#7c3aed',
-        backgroundColor:'rgba(124,58,237,.08)',
+        borderColor:cumulativeMode?'#7c3aed':'#2563eb',
+        backgroundColor:cumulativeMode?'rgba(124,58,237,.10)':'rgba(37,99,235,.14)',
         fill:true,
-        tension:.2,
-        pointRadius:hist.length>150?0:3,
+        tension:cumulativeMode?0:.28,
+        stepped:cumulativeMode?'before':false,
+        pointRadius:histSeries.length>150?0:3,
         pointHoverRadius:5
       }]},
       options:{
@@ -386,7 +416,7 @@
           legend:{display:false},
           tooltip:{callbacks:{
             title:items=>items.length?new Date(items[0].parsed.x).toLocaleString('en-GB',{dateStyle:'medium',timeStyle:historyState.resolution==='raw'?'short':undefined}):'',
-            label:item=>`${fmt(item.parsed.y)} total citations`
+            label:item=>cumulativeMode?`${fmt(item.parsed.y)} total citations`:`${item.parsed.y>=0?'+':''}${fmt(item.parsed.y)} citations gained`
           }},
           zoom:{
             limits:{x:{min:'original',max:'original',minRange:3600000}},
@@ -406,7 +436,7 @@
             },
             ticks:{maxRotation:0,autoSkip:true,maxTicksLimit:10}
           },
-          y:{beginAtZero:false,grid:{color:'#eef2f7'},ticks:{precision:0}}
+          y:{beginAtZero:!cumulativeMode,grid:{color:'#eef2f7'},ticks:{precision:0}}
         }
       }
     });
