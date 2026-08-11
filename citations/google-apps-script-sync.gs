@@ -8,9 +8,9 @@
  *
  * Public entry points:
  *   refreshOpenAlexNow()              // manual refresh, always runs
- *   refreshOpenAlex()                 // scheduled refresh; weekdays, once/day
+ *   refreshOpenAlex()                 // scheduled refresh; every hour on weekdays
  *   syncCitationDashboardToGitHubNow()
- *   installCitationDashboardTrigger() // optional: installs one daily 08:00 trigger
+ *   installCitationDashboardTrigger() // optional: installs one hourly trigger
  */
 
 const OPENALEX_ORCID = '0000-0002-6281-2229';
@@ -40,41 +40,33 @@ const DATA_QUALITY_HEADERS = [
   'snapshot_time','severity','issue','openalex_id','title','details'
 ];
 
-/** Manual refresh. Always runs, even if today has already been refreshed. */
+/** Manual refresh. Always runs immediately. */
 function refreshOpenAlexNow() {
   return refreshOpenAlexData_({ force: true });
 }
 
 /**
  * Scheduled refresh entry point.
- * Runs only Monday-Friday and at most once per local calendar day.
+ * Run this with an hourly Apps Script trigger.
+ * Refreshes every trigger execution Monday-Friday; skips weekends only.
  */
 function refreshOpenAlex() {
   const ss = SpreadsheetApp.getActiveSpreadsheet();
   const tz = ss.getSpreadsheetTimeZone() || Session.getScriptTimeZone() || 'Europe/London';
   const now = new Date();
   const weekday = Number(Utilities.formatDate(now, tz, 'u')); // 1=Mon ... 7=Sun
-  if (weekday > 5) return { skipped: true, reason: 'weekend' };
 
-  const props = PropertiesService.getScriptProperties();
-  const today = Utilities.formatDate(now, tz, 'yyyy-MM-dd');
-  const last = props.getProperty('LAST_SUCCESSFUL_REFRESH');
-  if (last) {
-    const lastDate = new Date(last);
-    if (!isNaN(lastDate.getTime())) {
-      const lastDay = Utilities.formatDate(lastDate, tz, 'yyyy-MM-dd');
-      if (lastDay === today) {
-        return { skipped: true, reason: 'already-refreshed-today' };
-      }
-    }
+  if (weekday > 5) {
+    return { skipped: true, reason: 'weekend' };
   }
+
   return refreshOpenAlexData_({ force: false });
 }
 
 /**
  * Optional one-time helper. Removes duplicate refreshOpenAlex triggers and
- * installs one daily trigger at about 08:00 in the Apps Script project timezone.
- * refreshOpenAlex() itself skips weekends.
+ * installs one hourly trigger. refreshOpenAlex() itself skips weekends.
+ * If you already created an hourly trigger manually, you do not need to run this.
  */
 function installCitationDashboardTrigger() {
   ScriptApp.getProjectTriggers()
@@ -83,8 +75,7 @@ function installCitationDashboardTrigger() {
 
   ScriptApp.newTrigger('refreshOpenAlex')
     .timeBased()
-    .everyDays(1)
-    .atHour(8)
+    .everyHours(1)
     .create();
 }
 
